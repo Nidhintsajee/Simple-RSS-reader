@@ -1,0 +1,30 @@
+.h1 {
+   color: #fff555;
+  , serif; font-size: 50px; margin: 0 0 24px; text-align: center; text-transform: uppercase; }
+
+
+.body{
+   margin: 25px;
+  font-size: 25px;
+  line-height: 30px;
+  color: #fff555;
+  background-color: #123456;
+}
+
+.header {
+   display: block;
+  padding: 3px 15px;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 20px;
+  color: #fff555;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+}
+
+a:link, a:visited { 
+    color: #fff555;
+    font-size: 30px;
+    text-decoration: underline;
+    cursor: auto;
+}

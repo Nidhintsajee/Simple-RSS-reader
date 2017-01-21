@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SignUp</title>
+
+    </head>
+
+    <body style="background-color:#123456;">
+       <h1 style="color: #fff555; font-size:50px" >Sign Up</h1>
+
+        {% if registered %}
+         <strong>You have registered successfully</strong>
+                {% else %}
+        <form style="color: #fff555 ;font-size:25px" id="user_form" method="post" action="/register/"
+                enctype="multipart/form-data">
+
+            {% csrf_token %}
+            {{ user_form.as_p }}
+
+            <!-- Provide a button to click to submit the form. -->
+            <input type="submit" name="submit" value="Register" />
+        </form>
+        {% endif %}
+ 
+	<div > <a style="color: #fff555 ;font-size:25px" href="{% url 'login'%}">Login</a></div>
+    </body>
+</html>

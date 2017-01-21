@@ -1,0 +1,49 @@
+<html>
+<head>
+<h1 style="color:white;">SIMPLE RSS READER</h1>
+</head>
+{% load static %}
+<body style="background-color:#123456;color: #fff555; font-size:25px">
+ <link rel="stylesheet" type="text/css" href={% static 'css/rss.css' %}/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+{% include "base.html" %}
+<form method="POST">
+ {% csrf_token %}
+  Enter URL:
+  <input type="text" class= 'textarea_2' id="url" name="url"/><br>
+  <br>
+<br><br>
+  <input type="button" class="convert" id="submit" value="OK"/><br><br>
+ <ul id='result' class= "boxs">
+
+
+ </ul><br><br>
+</form>
+<script >
+$("#submit").click(function(){
+    console.log('test')
+    $.ajax({url: "/reader/reader_page/",
+           type:"POST",
+           data:{url : $('#url').val(),
+    },
+      success: function (html) {
+           
+           html = JSON.parse(html)
+           $.each(html, function(index,value) {
+    
+              data =  "<div class ='content'><li><h1 class = 'heading'>"+value.title+"</h1></li>"+
+                      "<li><p>"+value.description+"</p></li>"+
+                      "<li><p>"+"<a href="+value.link+">Click here for more details</a>"+"</p></li></div>"
+            
+              $('#result').append(data);
+           });
+
+        }
+    });
+});
+
+
+</script>
+</body>
+</html>
+

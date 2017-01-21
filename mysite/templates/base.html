@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title style ="color:blue;">{% block title %}Welcome{% endblock %}</title>
+</head>
+<body style="background color:grey;color:green;color: #fff555; font-size:50px;">
+  <header>
+    <h1></h1>
+	<div>
+</div>
+    {% if user.is_authenticated %}
+     <div style="color: #fff555; font-size:50px"> Hi {{ user.username }}!</div><br>
+     <div> <a href="{% url 'logout' %}">logout</a></div>
+    
+    {% endif %}
+  </header>
+  <hr>
+
+  <main>
+    {% block content %}
+    {% endblock %}
+	<div class="basic">
+</div>
+  </main>
+  <hr>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<html>
+<head>
+   <title>Login</title>
+</head>
+{% load static %}
+ <link rel="stylesheet" type="text/css" href={% static 'css/rss.css' %}/>
+<h1 class='h1'>Simple RSS reader</h1>
+<body class='body' >
+<a href="https://github.com/Nidhintsajee/Simple-RSS-reader.git">GitHub repository</a>
+{% block content %}
+  <h2>Login</h2>
+  <form method="post" class='login_form'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+  </form>
+{% endblock %}
+ <div> <a style="text-color='#fffff8'" href="{% url 'register' %}">SignUp</a></div>
+</body>
+</html>
